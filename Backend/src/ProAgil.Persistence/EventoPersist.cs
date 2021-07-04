@@ -14,6 +14,7 @@ namespace ProAgil.Persistence
         public EventoPersist(ProAgilContext context)
         {
             _context = context;
+            _context.ChangeTracker.QueryTrackingBehavior = QueryTrackingBehavior.NoTracking;
         }
 
         public async Task<Evento> GetEventoByIdAsync(int EventoId, bool includePalestrantes = false)
