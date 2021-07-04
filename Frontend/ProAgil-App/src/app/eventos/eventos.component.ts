@@ -7,7 +7,10 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./eventos.component.scss'],
 })
 export class EventosComponent implements OnInit {
-  public eventos: any;
+  public eventos: any = [];
+  larguraImg: number = 150;
+  margemImg: number = 2;
+  mostrarImg: boolean = false;
 
   constructor(private http: HttpClient) {}
 
@@ -20,5 +23,9 @@ export class EventosComponent implements OnInit {
       (response) => (this.eventos = response),
       (error) => console.log(error)
     );
+  }
+
+  public mostrarImagem(): boolean {
+    return (this.mostrarImg = !this.mostrarImg);
   }
 }

@@ -1,7 +1,61 @@
-<h1>Eventos de Components</h1>
+<h1>Eventos</h1>
+<hr>
 
-<div *ngFor="let evento of eventos">
-  <strong>Tema:</strong> {{evento.tema}}<br>
-  <strong>Local:</strong> {{evento.local}}<br>
-  <hr>
+<form action="" class="form-inline">
+  <div class="form-group mb-2">
+    <input type="text" class="form-control mr-2" placeholder="Buscar">
+    <button class="btn btn-outline-success">Buscar</button>
+  </div>
+</form>
+
+<div class="table-responsive">
+  <table class="table table-striped">
+    <thead class="thead-dark">
+      <tr>
+        <th>
+          <button class="btn btn-outline-light btn-sm m-2"
+            tooltip="{{!mostrarImg ? 'Ocultar imagem' : 'Exibir imagem'}}" (click)="mostrarImagem()">
+            <i class="{{mostrarImg ? 'far fa-eye mr-2' : 'far fa-eye-slash mr-2'}}"></i>
+            Imagem
+          </button>
+        </th>
+        <th>#</th>
+        <th>Tema</th>
+        <th>Local</th>
+        <th>Data</th>
+        <th>Qtd Pessoas</th>
+        <th>Lote</th>
+        <th>Opções</th>
+      </tr>
+    </thead>
+    <tbody *ngIf="eventos && eventos.length">
+      <tr *ngFor="let evento of eventos">
+        <td>
+          <img [collapse]="mostrarImg" [isAnimated]="true" src="/assets/{{evento.imagemUrl}}" alt="Imagem"
+            [style.width.px]="larguraImg" [style.margin.px]="margemImg">
+        </td>
+        <td>{{evento.eventoId}}</td>
+        <td>{{evento.tema}}</td>
+        <td>{{evento.local}}</td>
+        <td>{{evento.dataEvento}}</td>
+        <td>{{evento.qtdPessoas}}</td>
+        <td>{{evento.lote}}</td>
+        <td>
+          <button class="btn btn-warning btn-sm m-2" tooltip="Editar">
+            <i class="far fa-edit"></i>
+          </button>
+          <button class="btn btn-danger btn-sm m-2" tooltip="Excluir">
+            <i class="far fa-trash-alt"></i>
+          </button>
+        </td>
+      </tr>
+    </tbody>
+    <tfoot *ngIf="!eventos.length">
+      <tr>
+        <td colspan="8" class="text-center">
+          <h4>Nenhum evento encontrado</h4>
+        </td>
+      </tr>
+    </tfoot>
+  </table>
 </div>
