@@ -456,6 +456,6 @@ $RECYCLE.BIN/
 ##
 ## SQLite
 ##
-*.db
-*.db-shm
-*.db-wal
+ProEventos.db
+ProEventos.db-shm
+ProEventos.db-wal

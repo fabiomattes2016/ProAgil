@@ -1,11 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Logging;
-using ProAgil.API.Data;
-using ProAgil.API.Models;
+using ProAgil.Domain;
+using ProAgil.Persistence;
 
 namespace ProAgil.API.Controllers
 {
@@ -13,9 +10,9 @@ namespace ProAgil.API.Controllers
     [Route("api/[controller]")]
     public class EventoController : ControllerBase
     {
-        private readonly DataContext _context;
+        private readonly ProAgilContext _context;
 
-        public EventoController(DataContext context)
+        public EventoController(ProAgilContext context)
         {
             _context = context;
         }
@@ -29,7 +26,7 @@ namespace ProAgil.API.Controllers
         [HttpGet("{id}")]
         public Evento GetById(int id)
         {
-            return _context.Eventos.FirstOrDefault(e => e.EventoId == id);
+            return _context.Eventos.FirstOrDefault(e => e.Id == id);
         }
 
         [HttpPost]
