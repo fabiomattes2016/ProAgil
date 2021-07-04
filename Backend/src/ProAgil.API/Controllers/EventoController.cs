@@ -3,6 +3,7 @@ using System.Linq;
 using Microsoft.AspNetCore.Mvc;
 using ProAgil.Domain;
 using ProAgil.Persistence;
+using ProAgil.Persistence.Context;
 
 namespace ProAgil.API.Controllers
 {

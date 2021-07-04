@@ -2,8 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
-using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
-using ProAgil.Persistence;
+using ProAgil.Persistence.Context;
 
 namespace ProAgil.Persistence.Migrations
 {
